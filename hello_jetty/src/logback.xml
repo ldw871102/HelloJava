@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+             <pattern>%date %-5level [%thread] %logger{35} - %message%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<filter class="ch.qos.logback.classic.filter.LevelFilter">  
+            <level>INFO</level>  
+            <OnMismatch>DENY</OnMismatch>  
+            <OnMatch>ACCEPT</OnMatch>  
+        </filter>  
+        <!-- 当前Log文件名 -->
+        <file>logs/pay-core-web.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 非当天的Log文件备份为 log/MobileWeb.2015-03-08.log -->
+            <fileNamePattern>logs/pay-core-web.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 超过30天的备份文件会被删除 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder  class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- 格式说明:http://logback.qos.ch/manual/layouts.html#ClassicPatternLayout -->
+            <pattern>%date %-5level [%thread] %logger{35} - %message%n</pattern>
+        </encoder>
+    </appender>
+    
+     <appender name="FILE-ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+      <filter class="ch.qos.logback.classic.filter.LevelFilter">  
+            <level>ERROR</level>  
+            <OnMismatch>DENY</OnMismatch>  
+            <OnMatch>ACCEPT</OnMatch>  
+        </filter>  
+        <!-- 当前Log文件名 -->
+        <file>logs/ErrorMobileWeb.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 非当天的Log文件备份为 log/ErrorMobileWeb.2015-03-08.log -->
+            <fileNamePattern>logs/ErrorPay-core-web.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 超过30天的备份文件会被删除 -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder  class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- 格式说明:http://logback.qos.ch/manual/layouts.html#ClassicPatternLayout -->
+            <pattern>%date %-5level [%thread] %logger{35} - %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+          <appender-ref ref="FILE" />
+          <appender-ref ref="FILE-ERROR" />
+          <appender-ref ref="Console" />
+    </root>
+</configuration>

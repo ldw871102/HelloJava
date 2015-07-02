@@ -1,0 +1,4 @@
+2015-05-10 08:29:35,102 INFO  [main] com.wdxy.test.logging.Slf4jTest - begin time : 1431217775102
+2015-05-10 08:29:35,117 INFO  [main] com.wdxy.test.logging.Slf4jTest - end time : 1431217775117
+2015-05-10 08:30:07,837 INFO  [main] com.wdxy.test.logging.Slf4jTest - begin time : 1431217807837
+2015-05-10 08:30:07,853 INFO  [main] com.wdxy.test.logging.Slf4jTest - end time : 1431217807853
