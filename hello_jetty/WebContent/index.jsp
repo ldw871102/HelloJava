@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-hello jetty!!!
+<center>hello jetty!!!</center>
 </body>
 </html>
